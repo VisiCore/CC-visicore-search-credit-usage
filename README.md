@@ -2,7 +2,7 @@
 
 A [Cribl App](https://docs.cribl.io/apps) that shows credit/CPU consumption per Cribl Search job — like the built-in Search monitoring dashboard, but focused on what each search costs.
 
-![Search Credit Usage dashboard](screenshots/dashboard.png)
+![Search Credit Usage dashboard](screenshots/dashboard.png?v=2)
 
 ## Features
 
