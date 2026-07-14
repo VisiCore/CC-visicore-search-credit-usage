@@ -36,7 +36,9 @@ function loadSettings(): CreditSettings {
   } catch {
     /* sandboxed storage unavailable — fall through to defaults */
   }
-  return { basis: 'billable', cpuSecPerCredit: 60, flagThreshold: null };
+  // Cribl meters Search compute in CPU-hours ("Search Total Compute (CPU x Hours)");
+  // usage-based plans are commonly 1 credit per CPU-hour. Calibrate in FinOps Center.
+  return { basis: 'billable', cpuSecPerCredit: 3600, flagThreshold: null };
 }
 
 function StatTile({ label, value, sub }: { label: string; value: string; sub?: string }) {
@@ -245,8 +247,11 @@ export default function App() {
         <div className="settings-panel card">
           <h2 className="card-title">Credit estimation</h2>
           <p className="settings-note">
-            The Search API reports CPU seconds, not credits. Set the conversion that matches your
-            Cribl plan; the estimate updates everywhere.
+            The Search API reports CPU seconds, not credits. Cribl bills Search compute in
+            CPU-hours; the default assumes 1 credit per CPU-hour (3600 CPU-seconds). To calibrate
+            for your contract, open FinOps Center in Cribl.Cloud (Search tab), divide a month's
+            Search credit consumption by its CPU-hours, then set CPU seconds per credit = 3600 ÷
+            that number.
           </p>
           <div className="settings-row">
             <label>

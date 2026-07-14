@@ -27,10 +27,10 @@ Both paths are declared in [`config/policies.yml`](config/policies.yml).
 
 ### Credit estimation
 
-The Search API reports **CPU seconds**, not credits. The ⚙ Credits panel lets you set the conversion that matches your Cribl plan:
+The Search API reports **CPU seconds**, not credits. Cribl bills Search compute in **CPU-hours** ("Search Total Compute (CPU × Hours)" in [FinOps Center](https://docs.cribl.io/billing-licensing/finops-center/)). The ⚙ Credits panel lets you set the conversion that matches your Cribl plan:
 
 - **Basis** — billable CPU seconds (default) or total CPU seconds (useful in dev environments where coordinator-only searches report 0 billable).
-- **CPU seconds per credit** — default 60.
+- **CPU seconds per credit** — default 3600 (1 credit per CPU-hour). To calibrate for your contract, open FinOps Center → Search tab, divide a month's Search credit consumption by its CPU-hours, then set this to 3600 ÷ that number.
 - **Flag threshold** — flag any search whose estimated credits exceed this value.
 
 Settings persist in the browser via `localStorage`.
