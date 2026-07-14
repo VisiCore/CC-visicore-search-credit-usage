@@ -4,6 +4,14 @@ A [Cribl App](https://docs.cribl.io/apps) that shows credit/CPU consumption per 
 
 ![Search Credit Usage dashboard](screenshots/dashboard.png?v=2)
 
+## Install
+
+1. Download `CC-visicore-search-credit-usage-<version>.tgz` from the [latest release](https://github.com/VisiCore/CC-visicore-search-credit-usage/releases/latest).
+2. In Cribl.Cloud, go to your workspace's **Apps** page and upload the archive (installs as app ID `cc-visicore-search-credit-usage`).
+3. Open the app and set your credit conversion in the **⚙ Credits** panel — see [Credit estimation](#credit-estimation) for how to find your account's rate.
+
+Or build the archive yourself from source with `npm install && npm run package` (output lands in `build/`).
+
 ## Features
 
 - **Usage stat tiles** — search count, total/average runtime, CPU seconds, billable CPU seconds, estimated credits, and data/events scanned for the selected time range.
