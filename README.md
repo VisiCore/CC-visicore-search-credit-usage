@@ -62,3 +62,7 @@ npm run package   # build + create installable app archive (bumps version)
 Built with React 19, TypeScript, and Vite. Charts are hand-rolled SVG — no chart library.
 
 To install in Cribl: run `npm run package` and upload the generated archive to your Cribl workspace.
+
+## License
+
+[Apache 2.0](LICENSE)

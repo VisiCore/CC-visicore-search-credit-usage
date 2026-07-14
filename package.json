@@ -27,6 +27,7 @@
   },
   "displayName": "Search Credit Usage",
   "author": "Andrew Hendrix",
+  "license": "Apache-2.0",
   "cribl": {
     "type": "app",
     "createAppScriptVersion": "0.2.0"
