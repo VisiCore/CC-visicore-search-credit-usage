@@ -12,6 +12,8 @@ A [Cribl App](https://docs.cribl.io/apps) that shows credit/CPU consumption per 
 - **Searches table** — every job with duration, CPU s, billable CPU s, estimated credits, data scanned, and events; sortable columns and filters for query text, type, user, and status.
 - **Credit flagging** — set a credit threshold in the ⚙ Credits panel; searches over it are flagged with a warning stripe, counted in a "Flagged searches" tile, and can be isolated with one click.
 - **Drilldown** — click the Flagged tile to jump to flagged searches, and click any row for full details: complete query text, timestamps, search window, datasets, launch time, data/events scanned, per-executor CPU breakdown, and an "Open in Cribl Search" link.
+
+  <img src="screenshots/search-details.png?v=1" alt="Search details drilldown panel" width="640">
 - **Time ranges & refresh** — 1h / 4h / 24h / 7d / 30d / All presets, manual refresh, and optional 60-second auto-refresh.
 
 ## How it works
