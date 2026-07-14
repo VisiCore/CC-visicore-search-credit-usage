@@ -1,0 +1,10 @@
+# Product API access declaration. Declare Cribl product API paths your app needs to access.
+# At install time, admins see exactly which platform resources the app will use.
+
+policies:
+  # List search jobs (includes cpuMetrics used for credit/CPU usage)
+  - object: '/m/:gid/search/jobs'
+    actions: ['GET']
+  # Per-job execution metrics: bytes/events scanned, launch timings (Cribl.Cloud)
+  - object: '/m/:gid/search/job-metrics'
+    actions: ['GET']
