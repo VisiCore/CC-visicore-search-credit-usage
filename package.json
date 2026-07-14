@@ -1,7 +1,8 @@
 {
-  "name": "search-credit-usage",
+  "name": "cc-visicore-search-credit-usage",
   "private": true,
   "version": "1.0.0",
+  "description": "Track credit and CPU consumption per Cribl Search job, with credit-threshold flagging and per-search drilldown",
   "type": "module",
   "scripts": {
     "dev": "vite",
