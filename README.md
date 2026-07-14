@@ -27,13 +27,25 @@ Both paths are declared in [`config/policies.yml`](config/policies.yml).
 
 ### Credit estimation
 
-The Search API reports **CPU seconds**, not credits. Cribl bills Search compute in **CPU-hours** ("Search Total Compute (CPU × Hours)" in [FinOps Center](https://docs.cribl.io/billing-licensing/finops-center/)). The ⚙ Credits panel lets you set the conversion that matches your Cribl plan:
+The Search API reports **CPU seconds**, not credits, so the app estimates credits using a conversion you control in the ⚙ Credits panel:
 
 - **Basis** — billable CPU seconds (default) or total CPU seconds (useful in dev environments where coordinator-only searches report 0 billable).
-- **CPU seconds per credit** — default 3600 (1 credit per CPU-hour). To calibrate for your contract, open FinOps Center → Search tab, divide a month's Search credit consumption by its CPU-hours, then set this to 3600 ÷ that number.
+- **CPU seconds per credit** — default 3600 (1 credit per CPU-hour).
 - **Flag threshold** — flag any search whose estimated credits exceed this value.
 
 Settings persist in the browser via `localStorage`.
+
+#### What Cribl actually bills
+
+- Search compute is metered in **CPU-hours** — the billing line item is *"Search Total Compute (CPU × Hours)"* — and in Cribl.Cloud **1 credit = $1** ([FinOps Center docs](https://docs.cribl.io/billing-licensing/finops-center/), [Cribl Pricing Guide](https://assets.ctfassets.net/xnqwd8kotbaj/a0Q1zUZPkkwSa31kMr5DL/6545d082ceb23313f91a758d9acde0b4/BGDE-0002-EN-Pricing_Guide-3-1125.pdf)).
+- On **usage-based (pay-as-you-go)** plans, that works out to 1 credit per CPU-hour — the app's default of 3600 CPU-seconds per credit ([How Cribl's Cloud pricing works](https://cribl.io/blog/cribl-cloud-pricing/)).
+- On **tiered / Search Subscription** plans, you buy a monthly credit bundle for a data-access tier rather than paying per search ([Search pricing](https://cribl.io/pricing/search/)), so there's no single per-search rate — the estimate is still useful for relative cost comparison, but calibrate the multiplier to your contract.
+
+#### How to find your account's real number
+
+1. In Cribl.Cloud, open **Organization → FinOps Center → Search tab**, which shows billed Search compute in CPU-hours alongside credit consumption ([docs](https://docs.cribl.io/billing-licensing/finops-center/)).
+2. For a representative month: **credits consumed ÷ CPU-hours = credits per CPU-hour** for your contract.
+3. In the app's ⚙ Credits panel, set **CPU seconds per credit = 3600 ÷ that number** (exactly 1 credit/CPU-hour → 3600).
 
 ## Development
 
